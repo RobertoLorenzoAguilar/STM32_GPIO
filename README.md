@@ -74,12 +74,19 @@ Los sistemas embebidos manejan diversas tareas simultáneamente, por lo que es c
 11. Fuente de Corriente directa externa.
 
 ### DESARROLLO
+**Paso 0:** Tener Instalado el STM32CubeIDE is an all-in-one multi-OS development tool.
+
+![image](https://github.com/user-attachments/assets/b433d919-102d-4775-b08e-848b7912ff52)
 
 **Paso 1:** Abrir un nuevo proyecto para empezar a configurar el microcontrolador.
+![image](https://github.com/user-attachments/assets/36a1be74-aeda-4735-9698-3d2ca2f8158b)
+
 
 **Paso 2:** Buscar el microcontrolador correspondiente, en este caso el STM32F411RET6, seleccionarlo y darle clic en siguiente, después darle el nombre al proyecto, darle “terminar”.
+![image](https://github.com/user-attachments/assets/88bac63a-8f62-4aec-a656-55c35047860e)
 
 **Paso 3:** Configurar las entradas y salidas del microcontrolador.
+![image](https://github.com/user-attachments/assets/2ecd4917-8de7-4ccd-ae39-dee6cd8dcfcd)
 
 **Salidas (Outputs):**
 - Etiquetas F1-F4 (son las fases del motor).
