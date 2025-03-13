@@ -156,6 +156,7 @@ while (1) {
 }
 ```
 ![image](https://github.com/user-attachments/assets/bcd3d793-9e7d-4520-9bda-0463ef8687dc)
+![Recording 2025-03-13 at 15 54 24](https://github.com/user-attachments/assets/10524194-fcac-407e-8c1f-a7769e363ad5)
 
 
 ## Conclusión
