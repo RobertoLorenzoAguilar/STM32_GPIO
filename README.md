@@ -149,3 +149,16 @@ while (1) {
 }
 ```
 ![image](https://github.com/user-attachments/assets/bcd3d793-9e7d-4520-9bda-0463ef8687dc)
+
+
+## Conclusión
+
+En resumen, los motores a pasos son una excelente opción para aplicaciones que requieren precisión y control de posición, ya que su funcionamiento se basa en la energización secuencial de sus bobinas. Sin embargo, es crucial considerar la velocidad de operación, ya que a velocidades muy altas puede producirse una saturación que impida el apagado adecuado de las bobinas, lo que podría provocar la detención del motor. 
+
+Además, es fundamental definir correctamente el momento en que se debe mostrar el número de pasos en el display de 7 segmentos, así como asegurarse de inicializar la salida digital en modo bajo. Esto último evita que el motor se active de manera involuntaria al cargar el programa en el microcontrolador.
+
+## Referencias
+
+1. Benitez, V. H. (Fecha de publicación). *Motores a pasos - Funcionamiento y control* [Video]. YouTube. [https://www.youtube.com/watch?v=uE8O_6Wk2XE](https://www.youtube.com/watch?v=uE8O_6Wk2XE)  
+2. Benitez, V. H. (Fecha de publicación). *Motores a pasos - Control con driver ULN2003* [Video]. YouTube. [https://www.youtube.com/watch?v=ijHkDWoqDhc](https://www.youtube.co
+
