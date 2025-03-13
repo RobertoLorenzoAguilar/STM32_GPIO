@@ -99,3 +99,51 @@ int latch; // variable botón2. “paro giro dirección”.
 int paro; // variable botón3. “relay motor cd”.
 int inicio; // variable para de asignación inicialización estado.
 int Fases_motor[4][4] = { { 0, 0, 0, 1 }, { 0, 0, 1, 0 }, { 0, 1, 0, 0 }, { 1,0, 0, 0 } }; // Fases Motor bvn v m n.
+
+**Funcionalidad principal en el bucle while:**
+```c
+while (1) {
+  giro = HAL_GPIO_ReadPin(GPIOC, BTN1_Pin); // Leemos el giro para comenzar el proceso de funcionalidad del motor
+  if (giro) {
+    inicio = 1;
+  }
+  while (inicio == 1) { // Si hay un giro cambia la variable inicio uno y entra en un ciclo
+    latch = HAL_GPIO_ReadPin(GPIOC, BTN2_Pin); // Si el botón latch fue presionado pausa y cambia la dirección.
+    paro = HAL_GPIO_ReadPin(GPIOC, BTN3_Pin); // Si el botón paro fue presionado manda señal al relay motor CD.
+    if (latch) {
+      HAL_Delay(200);
+      giro = !giro; // Cambia de dirección
+    }
+    if (paro) {
+      // Lee el estado actual del pin
+      GPIO_PinState pinState = HAL_GPIO_ReadPin(GPIOA, M2_Pin);
+      // Si el pin está encendido (HIGH), lo apagas (LOW)
+      if (pinState == GPIO_PIN_SET) {
+        HAL_GPIO_WritePin(GPIOA, M2_Pin, GPIO_PIN_RESET);
+      }
+      // Si el pin está apagado (LOW), lo enciendes (HIGH)
+      else {
+        HAL_GPIO_WritePin(GPIOA, M2_Pin, GPIO_PIN_SET);
+      }
+    }
+    if (!latch) {
+      if (giro) {
+        contador--;
+        if (contador < 0) {
+          contador = 3;
+        }
+      } else {
+        contador++;
+        if (contador >= 4) {
+          contador = 0;
+        }
+      }
+      Display(contador); // muestra los pasos del 0 al 3.
+      HAL_GPIO_WritePin(GPIOC, F1_Pin, Fases_motor[contador][0]); // excita las fases del motor.
+      HAL_GPIO_WritePin(GPIOC, F2_Pin, Fases_motor[contador][1]);
+      HAL_GPIO_WritePin(GPIOC, F3_Pin, Fases_motor[contador][2]);
+      HAL_GPIO_WritePin(GPIOC, F4_Pin, Fases_motor[contador][3]);
+      HAL_Delay(velocidad); // realiza un delay para evitar problemas de activación en el movimiento.
+    }
+  }
+}
