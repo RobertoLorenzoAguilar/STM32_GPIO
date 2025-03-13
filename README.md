@@ -99,7 +99,7 @@ int latch; // variable botón2. “paro giro dirección”.
 int paro; // variable botón3. “relay motor cd”.
 int inicio; // variable para de asignación inicialización estado.
 int Fases_motor[4][4] = { { 0, 0, 0, 1 }, { 0, 0, 1, 0 }, { 0, 1, 0, 0 }, { 1,0, 0, 0 } }; // Fases Motor bvn v m n.
-
+´´´
 **Funcionalidad principal en el bucle while:**
 ```c
 while (1) {
@@ -147,3 +147,4 @@ while (1) {
     }
   }
 }
+´´´
